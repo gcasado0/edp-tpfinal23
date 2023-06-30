@@ -3,6 +3,9 @@
 #Entiéndase por nombres de personas válidos a cualquier combinación de palabras
 #que empiecen con un letra mayúscula y sigan por minúsculas.
 
+#sudo apt install imagemagick
+
+
 DATASETS=./datasets
 
 convert $DATASETS/Victor_Alfredo.jpg -gravity center -resize 512x512+0+0 -extent 512x512 $DATASETS/Victor_Alfredo_512.jpg
