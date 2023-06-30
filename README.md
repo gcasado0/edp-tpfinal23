@@ -10,7 +10,6 @@ Este es el repo del tp de entorno
 ## Cómo se corre?
 
 ```
-mkdir asd
-touch asdasd
+mkdir datasets
 docker run -v <path-a-los-datasets>:<datasets-en-el-docker> <nombre_del_docker>
 ```
