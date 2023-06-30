@@ -27,5 +27,5 @@ if [ $CANTIDAD -gt 0 ]
 then
 	tar -zcvf $DATASETS/imagenes.tar $DATASETS/*.jpg	
 	sha256sum $DATASETS/imagenes.tar > $DATASETS/imagenes.tar.sha256
-	rm $DATASETS/*.jpg
+	#rm $DATASETS/*.jpg
 fi

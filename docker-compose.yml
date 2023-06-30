@@ -1,0 +1,5 @@
+services:
+  tp-edp:
+    build: .
+    volumes:
+      - ./datasets:/app/datasets
