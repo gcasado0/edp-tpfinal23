@@ -2,3 +2,4 @@
 *.jpg
 *.csv
 *.sha256
+datasets/
