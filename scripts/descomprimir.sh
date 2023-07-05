@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DESTINO_IMAGENES=./datasets/imagenes
+DESTINO_IMAGENES=./datasets/descomprimir
 mkdir -p $DESTINO_IMAGENES
 
 
@@ -11,8 +11,8 @@ if [$# -ne 2];
 		exit 1
 fi
 
-ARCHIVO_IMAGENES=./datasets/imagenes.tar.gz
-ARCHIVO_CHECKSUM=./datasets/imagenes.tar.gz.sha256
+ARCHIVO_IMAGENES=./datasets/generar/imagenes.tar.gz
+ARCHIVO_CHECKSUM=./datasets/generar/imagenes.sha256
 
 CHECKSUM_ORIGEN=$(cat $ARCHIVO_CHECKSUM)
 CHECKSUM_ESPERADA=$(sha256sum $ARCHIVO_IMAGENES | awk '{print $1}')
