@@ -7,7 +7,7 @@
 #sudo apt install imagemagick
 
 
-DATASETS=./datasets
+DATASETS=./datasets/imagenes/datasets
 FILTER="^[[:upper:]][[:lower:]]+(_[[:upper:]][[:lower:]]+)?"
 
 for FILE in $DATASETS/*.jpg

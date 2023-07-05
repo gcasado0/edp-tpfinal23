@@ -32,6 +32,6 @@ done
 if [ $CANTIDAD -gt 0 ]
 then
 	tar -zcvf $DATASETS/imagenes.tar.gz $DATASETS/*.jpg	
-	sha256sum $DATASETS/imagenes.tar.gz | awk '{ print $1 }' > $DATASETS/imagenes.tar.sha256
+	sha256sum $DATASETS/imagenes.tar.gz | awk '{ print $1 }' > $DATASETS/imagenes.tar.gz.sha256
 	#rm $DATASETS/*.jpg
 fi
