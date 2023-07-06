@@ -9,7 +9,7 @@
 #generados en los items anteriores y todas las imágenes. El archivo
 #comprimido debe poder accederse desde fuera del contenedor.
 
-ORIGEN=./datasets/descomprimir
+ORIGEN=$1
 SALIDA=./datasets/comprimir
 mkdir -p $SALIDA
 

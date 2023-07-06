@@ -6,16 +6,15 @@ URL_NOMBRES=https://raw.githubusercontent.com/adalessandro/EdP-2023-TP-Final/mai
 FILE_NOMBRES=dict.csv
 DATASETS=./datasets
 SALIDA=$DATASETS/generar
-mkdir -p $SALIDA
 
 [ $# -eq 0 ] && echo "Debe ingresar la cantidad de imagenes a descargar" && exit 1
 
-if [ ! -e $DATASETS ]
+if [ ! -e $SALIDA ]
 then
-	mkdir $DATASETS
+	mkdir -p $SALIDA
 fi
 
-if [ ! -e $DATASETS/$FILE_NOMBRES ]
+if [ ! -e $SALIDA/$FILE_NOMBRES ]
 then
 	curl $URL_NOMBRES -o $SALIDA/$FILE_NOMBRES
 fi
@@ -33,7 +32,8 @@ do
 done
 if [ $CANTIDAD -gt 0 ]
 then
-	tar  --transform 's/.*\///g' -zcvf $SALIDA/imagenes.tar.gz $SALIDA/*.jpg
-	sha256sum $SALIDA/imagenes.tar.gz | awk '{ print $1 }' > $SALIDA/imagenes.sha256
+	cd $SALIDA #Me muevo al directorio para no guardar la estructura de directorios en el tar.gz
+	tar -zcvf ./imagenes.tar.gz *.jpg
+	sha256sum ./imagenes.tar.gz | awk '{ print $1 }' > ./imagenes.sha256
 	#rm $DATASETS/*.jpg
 fi

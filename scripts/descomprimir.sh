@@ -3,16 +3,14 @@
 DESTINO_IMAGENES=./datasets/descomprimir
 mkdir -p $DESTINO_IMAGENES
 
-
-
 if [$# -ne 2];
 	then
 		echo "Error: Se deben ingresar 2 argumentos"
 		exit 1
 fi
 
-ARCHIVO_IMAGENES=./datasets/generar/imagenes.tar.gz
-ARCHIVO_CHECKSUM=./datasets/generar/imagenes.sha256
+ARCHIVO_IMAGENES=$1
+ARCHIVO_CHECKSUM=$2
 
 CHECKSUM_ORIGEN=$(cat $ARCHIVO_CHECKSUM)
 CHECKSUM_ESPERADA=$(sha256sum $ARCHIVO_IMAGENES | awk '{print $1}')

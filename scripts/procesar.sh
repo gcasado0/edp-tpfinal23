@@ -7,7 +7,7 @@
 #sudo apt install imagemagick
 
 
-DATASETS=./datasets/descomprimir
+DATASETS=$1
 FILTER="^[[:upper:]][[:lower:]]+(_[[:upper:]][[:lower:]]+)?"
 
 for FILE in $DATASETS/*.jpg
@@ -19,4 +19,3 @@ do
     convert $FILE -gravity center -resize 512x512+0+0 -extent 512x512 $FILE
   fi
 done
-
