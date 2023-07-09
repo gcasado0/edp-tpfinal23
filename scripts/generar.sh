@@ -7,10 +7,15 @@ FILE_NOMBRES=dict.csv
 DATASETS=./datasets
 SALIDA=$DATASETS/generar
 
+
 [ $# -eq 0 ] && echo "Debe ingresar la cantidad de imagenes a descargar" && exit 1
 
-if [ ! -e $SALIDA ]
-then
+if [ -e $SALIDA ]
+then #Limpieza de directorio de trabajo
+	rm -f $SALIDA/*.jpg
+	rm -f $SALIDA/imagenes.tar.gz
+	rm -f $SALIDA/imagenes.sha256
+else #Creo el directorio
 	mkdir -p $SALIDA
 fi
 

@@ -12,10 +12,14 @@ FILTER="^[[:upper:]][[:lower:]]+(_[[:upper:]][[:lower:]]+)?"
 
 for FILE in $DATASETS/*.jpg
 do
-  echo $FILE
+
   ARCHIVO=$(basename $FILE)
   if [[ $ARCHIVO =~ $FILTER ]]
   then
+
+    echo Procesando.. $FILE
     convert $FILE -gravity center -resize 512x512+0+0 -extent 512x512 $FILE
+    
   fi
+
 done

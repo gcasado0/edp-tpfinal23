@@ -1,9 +1,17 @@
 #!/bin/bash
 
 DESTINO_IMAGENES=./datasets/descomprimir
-mkdir -p $DESTINO_IMAGENES
+if [ -e $DESTINO_IMAGENES ]
+then #Limpieza de directorio de trabajo
+  rm -f $DESTINO_IMAGENES/*
+else #Creo el directorio
+  mkdir -p $DESTINO_IMAGENES
+fi
 
-if [$# -ne 2];
+#Limpieza de directorio de trabajo
+rm -f $DESTINO_IMAGENES/*
+
+if [ $# -ne 2 ];
 	then
 		echo "Error: Se deben ingresar 2 argumentos"
 		exit 1

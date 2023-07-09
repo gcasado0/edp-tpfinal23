@@ -16,5 +16,5 @@ bash -x scripts/descomprimir.sh ./datasets/generar/imagenes.tar.gz ./datasets/ge
 echo "3/4-Procesando lote imágenes..."
 bash -x scripts/procesar.sh ./datasets/descomprimir
 
-echo "4/4-Procesando lote imágenes..."
+echo "4/4-Comprimiendo lote imágenes..."
 bash -x scripts/comprimir.sh ./datasets/descomprimir
