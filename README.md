@@ -2,8 +2,9 @@
 
 ## Integrantes
 
-Marisa Silvina Zappala
-Gustavo Alberto Casado
+- Marisa Silvina Zappala
+
+- Gustavo Alberto Casado
 
 ## Qué hace?
 
@@ -12,17 +13,14 @@ Este proyecto permite generar un lote de imágenes de personas y generar un arch
 ## Cómo se corre?
 
 ```
-1- Crear directorio de trabajo (opcional)
+1. Crear directorio de trabajo (opcional)
 (no es necesario crearlo salvo para que quede como dueño el usuario logueado en vez de root)
 
     mkdir datasets 
 
-2- Dos opciones para correr el proyecto:
+2. Para correr el proyecto:
 
-A- La primera:
     docker build -t tp-entorno .
     docker run -it -v ./datasets:/app/datasets tp-entorno
 
-B- La segunda:
-    docker compose up
 ```
