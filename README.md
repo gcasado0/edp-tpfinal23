@@ -12,6 +12,13 @@ Este proyecto permite generar un lote de imágenes de personas y generar un arch
 
 ## Cómo se corre?
 
+### Prerequisitos
+
+- Tener instalado docker
+- Acceso a internet
+
+### Pasos
+
 ```
 1. Crear directorio de trabajo (opcional)
 (no es necesario crearlo salvo para que quede como dueño el usuario logueado en vez de root)
@@ -20,7 +27,12 @@ Este proyecto permite generar un lote de imágenes de personas y generar un arch
 
 2. Para correr el proyecto:
 
-    docker build -t tp-entorno .
-    docker run -it -v ./datasets:/app/datasets tp-entorno
+    - Crear la imagen de docker
+        
+        docker build -t tp-entorno . 
+    
+    - Ejecutar el contenedor
+        
+        docker run -it -v ./datasets:/app/datasets tp-entorno
 
 ```
