@@ -6,4 +6,4 @@ WORKDIR /app
 
 ADD scripts scripts
 
-ENTRYPOINT ["bash", "/app/scripts/test.sh"]
+ENTRYPOINT ["bash", "/app/scripts/menutp.sh"]

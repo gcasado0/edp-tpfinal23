@@ -9,7 +9,16 @@
 #generados en los items anteriores y todas las imágenes. El archivo
 #comprimido debe poder accederse desde fuera del contenedor.
 
+
+if [ $# -ne 1 ]
+	then
+		echo "Error: Se debe ingresar el directorio del lote a procesar"
+		exit 1
+fi
+
+
 ORIGEN=$1
+[ ! -e $ORIGEN ] && echo "Error: El directorio del lote a procesar a no existe" && exit 2
 
 SALIDA=./datasets/comprimir
 if [ -e $SALIDA ]
@@ -25,6 +34,10 @@ FILTER="^[[:upper:]][[:lower:]]+(_[[:upper:]][[:lower:]]+)?"
 ARCHIVO1=$ORIGEN/listado_completo.txt
 ARCHIVO2=$ORIGEN/listado_nombres_validos.txt
 ARCHIVO3=$ORIGEN/total_personas_letra_a.txt
+
+#Controlo que directorio origen tiene archivos a procesar
+CANTIDAD=$(ls $ORIGEN/*.jpg 2> /dev/null| wc -l)
+[ $CANTIDAD -eq 0 ] && echo "Error: El directorio origen esta vacio" && exit 3
 
 
 #Creo los archivos de salida
