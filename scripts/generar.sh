@@ -24,21 +24,24 @@ then
 	curl $URL_NOMBRES -o $SALIDA/$FILE_NOMBRES
 fi
 
-TAMANIO_NOMBRES=$(cat $SALIDA/$FILE_NOMBRES | wc -l)
-
-for ((i=1; i<=$CANTIDAD; i++))
-do
-    NUMERO=$((RANDOM%$TAMANIO_NOMBRES+1))	
-	NOMBRE=$(awk 'BEGIN { FS = ","} { print $1 }' $SALIDA/$FILE_NOMBRES  | tail -$NUMERO | head -1 | tr " " "_")
-	ARCHIVO="$NOMBRE.jpg"
-
-	curl $URL_IMAGENES -o $SALIDA/$ARCHIVO
-	sleep 3 
-done
-if [ $CANTIDAD -gt 0 ]
+if [ -e $SALIDA/$FILE_NOMBRES ] 
 then
-	cd $SALIDA #Me muevo al directorio para no guardar la estructura de directorios en el tar.gz
-	tar -zcvf ./imagenes.tar.gz *.jpg
-	sha256sum ./imagenes.tar.gz | awk '{ print $1 }' > ./imagenes.sha256
-	#rm $DATASETS/*.jpg
+
+	TAMANIO_NOMBRES=$(cat $SALIDA/$FILE_NOMBRES | wc -l)
+
+	for ((i=1; i<=$CANTIDAD; i++))
+	do
+		NUMERO=$((RANDOM%$TAMANIO_NOMBRES+1))	
+		NOMBRE=$(awk 'BEGIN { FS = ","} { print $1 }' $SALIDA/$FILE_NOMBRES  | tail -$NUMERO | head -1 | tr " " "_")
+		ARCHIVO="$NOMBRE.jpg"
+
+		curl $URL_IMAGENES -o $SALIDA/$ARCHIVO
+		sleep 3 
+	done
+	if [ $CANTIDAD -gt 0 ]
+	then
+		cd $SALIDA #Me muevo al directorio para no guardar la estructura de directorios en el tar.gz
+		tar -zcvf ./imagenes.tar.gz *.jpg
+		sha256sum ./imagenes.tar.gz | awk '{ print $1 }' > ./imagenes.sha256	
+	fi
 fi

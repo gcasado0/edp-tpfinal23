@@ -1,6 +1,6 @@
 #!/bin/bash
 
-opciones=("salir" "generar" "descomprimir" "procesar" "comprimir")
+opciones=("Generar" "Descomprimir" "Procesar" "Comprimir" "Salir")
 
 
 PS3='Elija> '
@@ -12,27 +12,27 @@ do
 
 	case $opcion in
 
-		"salir")
+		"Salir")
 		    echo "Elegiste salir"
 		    echo "Hasta luego"
 		    break;;
 
-		"generar")
+		"Generar")
 		    echo "Elegiste generar un lote de 5 imágenes"
 		    bash scripts/generar.sh 5
 			;;
 
-		"descomprimir")
+		"Descomprimir")
 		    echo "Elegiste descomprimir un lote de imágenes"
 		    bash scripts/descomprimir.sh ./datasets/generar/imagenes.tar.gz ./datasets/generar/imagenes.sha256
 			;;
 
-		"procesar")
+		"Procesar")
 		    echo "Elegiste procesar un lote de imágenes"      
 		    bash scripts/procesar.sh ./datasets/descomprimir
 			;;
 
-		"comprimir")
+		"Comprimir")
 		    echo "Elegiste comprimir un lote de imágenes"       
 		    bash scripts/comprimir.sh ./datasets/descomprimir
 			;;
