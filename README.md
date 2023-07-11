@@ -36,3 +36,17 @@ Este proyecto permite generar un lote de imágenes de personas y generar un arch
         docker run -it -v ./datasets:/app/datasets tp-entorno
 
 ```
+
+#### docker-compose
+
+Bring up docker compose containers:
+```
+$ docker compose up
+[...]
+```
+
+On a different terminal, attach the container:
+```
+$ docker attach gcasado0-edp-tpfinal23git-tp-entorno-1
+# You are now inside the menu. Type something!
+```
