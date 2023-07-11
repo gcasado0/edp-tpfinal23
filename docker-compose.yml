@@ -1,5 +1,7 @@
 services:
   tp-entorno:
     build: .
+    tty: true
+    stdin_open: true
     volumes:
       - ./datasets:/app/datasets
